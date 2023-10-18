@@ -23,4 +23,22 @@ suppose I have created project like this
               or
   django-admin startproject myproject
 ```
-  
+I have also created an app
+```bash
+python manage.py startapp app1
+
+```
+ 
+Now lets look at the Structure of our project
+
+```bash
+    myproject(the project folder name)
+    |_myproject
+    |_app1
+        |_template
+        |_static
+    |_manage.py
+
+```
+In this structure You can see that I have put my tempalted and static  folder in a app and your project structure should be like this.
+If You are unable to understand or comfuse that how use this strcutre or something like this then don't worry I will attach a sample project with this repo.
