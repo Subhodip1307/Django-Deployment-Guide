@@ -130,7 +130,7 @@ scp -P 22 myproject.zip trisha@192.168.0.1:
 ```
 Now it will take sometime and then loging in your vps with your username in our case this is 'trisha'
 
-``bash
+```bash
     ssh trisha@192.168.0.1
 ```
 Now let's see does our project successfully cloned in our VPS or not for that use this command 
@@ -154,6 +154,51 @@ example:- In our case our folder name is myproject.zip
 unzip myproject.zip
 ```
 
+# Downloading Requirments
+so let's download our Requirments, before that update your system
 
+```bash
+sudo apt update
+sudo apt upgrade
+```
 
+Run This commands one by one to Download all requirments 
+
+```bash
+sudo apt install apache2
+sudo apt install mysql-server
+sudo apt install python
+sudo apt install libapache2-mod-wsgi-py3
+sudo apt install python3-pip
+sudo pip install virtualenv
+```
+Now we have donwloaded everything now let's check everyting is fine or not.
+Run This follwing commands if we are not getting any error then Everthing is fine
+
+<ul>
+  <li>
+  Checking Python
+
+      
+      python3
+      
+          
+  </li>
+  <li>
+  Checking Apache
+
+    sudo service apache2 status
+  </li>
+<li>
+    Checking Mysql
+
+    mysql
+</li>
+</ul>
+Now type 'exit' to exit from mysql
+
+Now we are done next we will deploy our project
+
+# Deploying Project
+Comming soon...
 
