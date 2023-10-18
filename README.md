@@ -37,8 +37,56 @@ Now lets look at the Structure of our project
     |_app1
         |_template
         |_static
+    |_myvnv(virtual env)
     |_manage.py
 
 ```
 In this structure You can see that I have put my tempalted and static  folder in a app and your project structure should be like this.
 If You are unable to understand or comfuse that how use this strcutre or something like this then don't worry I will attach a sample project with this repo.
+
+# Basic VPS Configuration
+In this section we will configure our VPS and donwload all dependensis for our project and we will also create a user.
+
+<h2>Createing a User in VPS</h2>
+so in first step we need to login in our vps with ssh key or ip . Here I will use ip and username to login
+
+```bash
+ssh root@your_server_ip
+```
+example:
+suppose my VPS ip is :-192.168.0.1 and by default the username will be root
+```bash
+ssh root@192.168.0.1
+```
+And Then give your password
+Now we are successfully loged in our VPS, now We will create a user
+
+```bash
+adduser <username>
+```
+example:- suppose I wanna create a user name 'trisha'
+
+```bash
+adduser trisha
+```
+now we will give the user subho privilages so in our case our user is 'trisha'
+
+```bash
+usermod -aG sudo trisha
+```
+<h2>Now we will set-up our Firewall</h2>
+
+Just run the command
+
+```bash
+ufw allow OpenSSH
+ufw enable
+```
+
+
+
+
+
+
+
+
