@@ -435,5 +435,16 @@ and then save and exit from the text editor
 Now ativate your virtual env and collect staticfiles
 
 ```bash
-
+source myvnv/bin/activate
 ```
+and then run this
+
+```bash
+python manage.py collectstatic
+```
+If you get any error after running this command you make a googel search for it or you can message me in this repo.
+
+Now our porject is 90% ready we just need connect it mysql and then depoly it
+
+<h1>Working on it , Please wait for more</h1>
+
