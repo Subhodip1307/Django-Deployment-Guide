@@ -39,6 +39,7 @@ Now lets look at the Structure of our project
         |_static
     |_myvnv(virtual env)
     |_manage.py
+    |_requirments.txt
 
 ```
 In this structure You can see that I have put my tempalted and static  folder in a app and your project structure should be like this.
@@ -198,6 +199,27 @@ Run This follwing commands if we are not getting any error then Everthing is fin
 Now type 'exit' to exit from mysql
 
 Now we are done next we will deploy our project
+
+# Downloading Project Requirments
+In order to do that you need to activate your virtualenv
+
+```bash
+source myvnv/bin/activate
+```
+Now we can download required python modules in my case I have requirments.txt (if you don't have requirments.txt then you download one by one)
+```bash
+pip install -r requirments.txt
+```
+After donwloading everything you Check it by this command -:
+
+```bash
+pip list
+```
+We have successfully downloaded all requirments now deactivate the virtual env and move to depolyment stage
+
+```bash
+    deactivate
+```
 
 # Deploying Project
 
