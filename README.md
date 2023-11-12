@@ -337,4 +337,81 @@ in this line of code here is a keyword call 'virtualenv_name' just replace it wi
 </VirtualHost>
 
 ```
-<h1>Still working on It</h1>
+Now we are almost done , next we will check that your conf code is correct or not and then we will active it , so in order to do that run this 
+
+``` bash
+sudo apache2ctl configtest
+```
+and if everything is fine then we will activeate this conf file.
+
+```bash
+sudo a2ensite your_domain.conf
+```
+in my case my conf file name was 'subho.com.conf'
+
+```bash
+sudo a2ensite subho.com.conf
+```
+
+Now we need to make some more small chnages then we can depoly our project so to order to do that run this following command
+
+```bash
+cd /etc/apache2
+sudo nano apache2.conf
+```
+and then go at the bottom of the file and then paste this :-
+
+```bash
+WSGIApplicationGroup %{GLOBAL}
+```
+Then exit from the nano editor after saveing the changes ( I hope you know how to do that ).
+Now restart Apache server
+```bash
+sudo service apache2 restart
+```
+Now We are all done with apache , and now let's look at our django project and make some small changes in that project with some following steps
+
+<h3>Step 1:</h3>
+Go to our settings.py file and open it in nano editor ( or any other text editor)
+
+```bash
+cd /var/www/miniblog/miniblog
+sudo nano sudo nano settings.py
+```
+<h3>Step 2:</h3>
+Make The following Changes
+
+```bash
+ALLOWED_HOST = ["your_domain"]
+```
+<ul>
+    <li>Type Your Domain Here in my case this is 'subho.com' so it should look like this</li>
+        
+        
+        ALLOWED_HOST = ["subho.com","www.subho.com"]
+</ul>
+<ul>
+    <li>
+       I have't any domain then write your IP address of your VPS here ( type 'ifconfig' in your terminal of vps to know our ip) 
+    </li>
+
+    
+            ALLOWED_HOST = ["192.168.0.1"]
+            
+</ul>
+
+<h3>Step 3:</h3>
+Write this in to Your settings.py
+
+```bash
+DEBUG = False
+STATIC_ROOT = BASE_DIR / 'static'
+```
+and then save and exit from the text editor 
+
+<h3>Step 4:</h3>
+Now ativate your virtual env and collect staticfiles
+
+```bash
+
+```
