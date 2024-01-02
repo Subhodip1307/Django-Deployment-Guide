@@ -143,4 +143,16 @@ example:- In our case our folder name is myproject.zip
 ```bash
 unzip myproject.zip
 ```
+# Depolyment Options
 
+unitill now we have how Can we set up our project in our vps now we gonna learn how can we depoly our project in differnt web-servers and with differnt databases.
+
+<h2>Web-Server</h2>
+
+-  [Apache](apache2.md)
+-  Nginx & gunicorn (Comming soon)
+
+<h2>Data Base</h2>
+
+- Sqlite (comming soon)
+- MySql(comming soon)
