@@ -78,10 +78,11 @@ If You have media files then you need to go thorugh the following steps
 - Adding User to 'www-data' group (www-data is a user and group that the service httpd (Apache) uses to run on a system)
 - In my case my username is trisha
   
-  ```bash
+```bash
 sudo usermod -a -G www-data trisha
  ```
-- Giving Permission To Media Folder ( I am gussing That Your Media folder name is Media and Run This caommnd Where your media file is )
+
+- Giving Permission To Media Folder ( I am gussing That Your Media folder name is Media and Run This caommnd Where your media file is)
 
  ```bash
 sudo chown -R www-data:www-data media
@@ -94,11 +95,13 @@ Now we need to move our project file to a 'www' dirctory to do that
 ```bash
 sudo mv project_folder_name /var/www/
 ```
+
 example:- In our case our project name is 'myproject' 
 
 ```bash
 sudo mv myproject  /var/www/
 ```
+
 now let's go to the localtion and check if the project moved successfully or not
 
 ```bash
@@ -362,7 +365,8 @@ certbot --apache
 - After Doing That Open your site conf file Again And uncomment The lines
 - Next There will be another new file with almost same name of your conf file (end with '-le-ssl.conf') open that file in text editor .
 - Uncommnet the same 3 lines and change your project name or add any extra letters in your project name (ex: my project name was 'myproject' and I made it 'myprojects')
-  ```bash
+
+```bash
 WSGIDaemonProcess myprojects python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
 WSGIProcessGroup myprojects
 WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
@@ -372,6 +376,7 @@ WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
 ```bash
 cd /etc/apache2/sites-enabled
 ```
+
 - After That use 'ls' Command You will The  same files which you just edited
 - You will Need to make same changes What you have done here (uncommeting the last 3 lines in first file and in the second file uncomminting the 3 lines and changeing the project name)
 - Now Restart Your Apache To see the changes
