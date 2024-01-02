@@ -366,10 +366,10 @@ certbot --apache
 WSGIDaemonProcess myprojects python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
 WSGIProcessGroup myprojects
 WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
-  ```
+ ```
 - Now Run This following command
 
-``bash
+```bash
 cd /etc/apache2/sites-enabled
 ```
 - After That use 'ls' Command You will The  same files which you just edited
