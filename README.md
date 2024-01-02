@@ -145,7 +145,7 @@ unzip myproject.zip
 ```
 # Depolyment Options
 
-unitill now we have how Can we set up our project in our vps now we gonna learn how can we depoly our project in differnt web-servers and with differnt databases.
+untill now we have how Can we set up our project in our vps now we gonna learn how can we depoly our project in differnt web-servers and with differnt databases.
 
 <h2>Web-Server</h2>
 
