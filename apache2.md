@@ -1,3 +1,5 @@
+# Djano Depolyment With Apache2
+ Here we will see how can we depoly our django app with apache2 and after that we will see how to configure data base for our site then look over other djano framworks (celery, django channels) and learn how to depoly them 
 
 # Downloading Requirments
 so let's download our Requirments, before that update your system
@@ -19,6 +21,12 @@ sudo pip install virtualenv
 ```
 Now we have donwloaded everything now let's check everyting is fine or not.
 Run This follwing commands if we are not getting any error then Everthing is fine
+
+First we need to set up Firewall permission to apache, just copy the command and pasted it.
+
+```bash
+ufw allow "Apache Full"
+```
 
 <ul>
   <li>
@@ -288,7 +296,25 @@ python manage.py collectstatic
 ```
 If you get any error after running this command you make a googel search for it or you can message me in this repo.
 
-Now our porject is 90% ready we just need connect it mysql and then depoly it
+After all of that we need to restart our apache server and then we can see that our site is on live.
 
-<h1>Working on it , Please wait for more</h1>
+to do that run this command 
+
+```bash
+sudo service apache2 restart
+
+```
+After That you can open the web address and you will able to see your site.
+But currently I will run on http not https so we need to enable SSL for our site , and keep in mind you can't work in your site due to uncifgured data base ,
+so will do everythig one by one . First let's active SSL
+
+# Enableing SSL
+Here We will enable SSL for our site in few easy and simple steps
+
+- Open Your Site Config file of apache ( where We written code for our site)
+
+```bash
+syntax: sudo nano /etc/apache2/sites-available/your_domain.conf
+example: sudo nano /etc/apache2/sites-available/subho.com.conf
+```
 
