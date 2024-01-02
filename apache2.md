@@ -72,6 +72,20 @@ We have successfully downloaded all requirments now deactivate the virtual env a
 ```bash
     deactivate
 ```
+# Media File Permission
+If You have media files then you need to go thorugh the following steps
+
+- Adding User to 'www-data' group (www-data is a user and group that the service httpd (Apache) uses to run on a system)
+- In my case my username is trisha
+  
+  ```bash
+sudo usermod -a -G www-data trisha
+ ```
+- Giving Permission To Media Folder ( I am gussing That Your Media folder name is Media and Run This caommnd Where your media file is )
+
+ ```bash
+sudo chown -R www-data:www-data media
+```
 
 # Deploying Project
 
@@ -311,10 +325,62 @@ so will do everythig one by one . First let's active SSL
 # Enableing SSL
 Here We will enable SSL for our site in few easy and simple steps
 
+- First We need to install "certbot" to do that run this follwing command
+
+  ```bash
+  apt install certbot python3-certbot-apache
+  ```
+
 - Open Your Site Config file of apache ( where We written code for our site)
 
 ```bash
 syntax: sudo nano /etc/apache2/sites-available/your_domain.conf
 example: sudo nano /etc/apache2/sites-available/subho.com.conf
 ```
+- Now comment The Last 3 Lines by useing '#' (excpet '</VirtualHost>')
 
+  ```bash
+#WSGIDaemonProcess myproject python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
+#WSGIProcessGroup myproject
+#WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
+  ```
+- Verify Web Server Ports are Open and Allowed through Firewall
+
+```bash
+ufw status verbose
+```
+If you Don't see apache name after running this command the run the follwing command then run the command
+
+```bash
+sudo ufw allow "Apache Full
+```
+- Now Run This command and you will see all domains that are pointed to your vps chose or multipule. 
+ 
+ ```bash
+certbot --apache
+```
+- After Doing That Open your site conf file Again And uncomment The lines
+- Next There will be another new file with almost same name of your conf file (end with '-le-ssl.conf') open that file in text editor .
+- Uncommnet the same 3 lines and change your project name or add any extra letters in your project name (ex: my project name was 'myproject' and I made it 'myprojects')
+  ```bash
+WSGIDaemonProcess myprojects python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
+WSGIProcessGroup myprojects
+WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
+  ```
+- Now Run This following command
+
+``bash
+cd /etc/apache2/sites-enabled
+```
+- After That use 'ls' Command You will The  same files which you just edited
+- You will Need to make same changes What you have done here (uncommeting the last 3 lines in first file and in the second file uncomminting the 3 lines and changeing the project name)
+- Now Restart Your Apache To see the changes
+  ```bash
+  sudo service apache2 restart
+  ```
+  ** Now You Have enabled SSL To your Site ,Now You need to configure Data base To use Your site properly Now Chose any Data Base Opetion From Following to do that
+
+  - Sqlite (working on it)
+  - Mysql/Mysql-server (working on it)
+
+  
