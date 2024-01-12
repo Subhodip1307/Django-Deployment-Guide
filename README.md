@@ -154,5 +154,5 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 
 <h2>Data Base</h2>
 
-- Sqlite (comming soon)
+- [Sqlite](DBSQLITE.md)
 - MySql(comming soon)
