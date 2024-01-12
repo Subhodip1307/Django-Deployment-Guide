@@ -402,7 +402,7 @@ cd /etc/apache2/sites-enabled
   ```
   ** Now You Have enabled SSL To your Site ,Now You need to configure Data base To use Your site properly Now Chose any Data Base Opetion From Following to do that
 
-  - Sqlite (working on it)
+  -  [Sqlite](DBSQLITE.md)
   - Mysql/Mysql-server (working on it)
 
   
