@@ -260,13 +260,27 @@ Now restart Apache server
 ```bash
 sudo service apache2 restart
 ```
-Now We are all done with apache , and now let's look at our django project and make some small changes in that project with some following steps
+Now We are all done with apache , and now let's look at our django project and make some small changes in that project with some following steps.
+If you every get any error in this apache server then check the error log with this command
+
+```bash
+cd /var/log/apache2
+cat error.log
+```
+** Use This command as sudo
+** To clear the error log you can run this 
+
+```bash
+sudo bash -c 'echo > /var/log/apache2/error.log'
+```
+
+
 
 <h3>Step 1:</h3>
 Go to our settings.py file and open it in nano editor ( or any other text editor)
 
 ```bash
-cd /var/www/miniblog/miniblog
+cd /var/www/myproject/myproject
 sudo nano sudo nano settings.py
 ```
 <h3>Step 2:</h3>
@@ -342,20 +356,23 @@ example: sudo nano /etc/apache2/sites-available/subho.com.conf
 ```
 - Now comment The Last 3 Lines by useing '#' (excpet '</VirtualHost>')
 
-  ```bash
-#WSGIDaemonProcess myproject python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
-#WSGIProcessGroup myproject
-#WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
-  ```
+```bash
+ #WSGIDaemonProcess myproject python-home=/var/www/myproject/myvnv python-path=/var/www/myproject
+ #WSGIProcessGroup myproject
+ #WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
+ ```
+
 - Verify Web Server Ports are Open and Allowed through Firewall
 
 ```bash
-ufw status verbose
+
+  ufw status verbose
+
 ```
 If you Don't see apache name after running this command the run the follwing command then run the command
 
 ```bash
-sudo ufw allow "Apache Full
+sudo ufw allow "Apache Full"
 ```
 - Now Run This command and you will see all domains that are pointed to your vps chose or multipule. 
  
