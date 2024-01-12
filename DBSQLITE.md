@@ -4,6 +4,7 @@ And This Database is default Database of Django and its very simple to use.
 ** If you are useing This Database and want a daily backup of your data in a fun way this you check my [DataBase-Backup](https://github.com/Subhodip1307/DataBase-Backup) repo.
 following rules will tell you how to setup Sqlite as in production:-
 - Go To your Project Dirctory and open settings.py make this changes
+  
 ** if you face 'permission denied' in any command then use sudo with that command 
 
 ```bash
