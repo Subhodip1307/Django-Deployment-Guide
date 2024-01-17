@@ -1,4 +1,4 @@
-# Django-Hosting-full-guide-
+# Django-Hosting-full-guide
 Welcome to this repo here you will learn how to host your django site in vps or any linux server.
 Most of the django devoloper faces problem to host there site after createting there dajngo Project so no need to worry any more in this Guide you will learn how to host your site in any vps in any web-server.
 I will show here all methods to depoly your django project.
@@ -155,8 +155,9 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 <h2>Data Base</h2>
 
 - [Sqlite](DBSQLITE.md)
-- MySql(comming soon)
+- [MySql](MYSQL.md)
 
 <h2>Django Other packages</h2>
+
 - Celery (comming soon)
 - Channels(comming soon)
