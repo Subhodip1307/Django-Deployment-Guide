@@ -13,7 +13,6 @@ Run This commands one by one to Download all requirments
 
 ```bash
 sudo apt install apache2
-sudo apt install mysql-server
 sudo apt install python
 sudo apt install libapache2-mod-wsgi-py3
 sudo apt install python3-pip
@@ -42,13 +41,8 @@ ufw allow "Apache Full"
 
     sudo service apache2 status
   </li>
-<li>
-    Checking Mysql
-
-    mysql
-</li>
 </ul>
-Now type 'exit' to exit from mysql
+
 
 Now we are done next we will deploy our project
 
