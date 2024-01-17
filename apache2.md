@@ -412,6 +412,6 @@ sudo systemctl enable apache2
  # Configure Data Base
  
   -  [Sqlite](DBSQLITE.md)
-  - Mysql/Mysql-server (working on it)
+  -  [MySql](MYSQL.md)
 
   
