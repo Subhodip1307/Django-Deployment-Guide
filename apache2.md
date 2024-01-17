@@ -401,7 +401,16 @@ cd /etc/apache2/sites-enabled
   sudo service apache2 restart
   ```
   ** Now You Have enabled SSL To your Site ,Now You need to configure Data base To use Your site properly Now Chose any Data Base Opetion From Following to do that
+# Auto Restart
+ Now Everything is working fine now we need to make enable auto restart on to apache server so that if we boot our vps apache will start automatically.
+ just run the following command
 
+```bash
+sudo systemctl enable apache2
+```
+
+ # Configure Data Base
+ 
   -  [Sqlite](DBSQLITE.md)
   - Mysql/Mysql-server (working on it)
 
