@@ -1,6 +1,7 @@
 # Django Deployment Useing MYSQl/MYSQL-SERVER
 SMySQL is a relational database management system (RDBMS) that allows users to store, manage, and retrieve structured data. It is based on structured query language (SQL) and is developed by Oracle.
 And Its very easy to use and integrate with django.
+
 ** If you are useing This Database and want a daily backup of your data in a fun way this you check my [DataBase-Backup](https://github.com/Subhodip1307/DataBase-Backup) repo.
 
 following rules will tell you how to setup Sqlite as in production:-
