@@ -1,4 +1,4 @@
-# Djano Depolyment With Apache2
+# Django Depolyment With Apache2
  Here we will see how can we depoly our django app with apache2 and after that we will see how to configure data base for our site then look over other djano framworks (celery, django channels) and learn how to depoly them 
 
 # Downloading Requirments
