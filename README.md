@@ -156,3 +156,7 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 
 - [Sqlite](DBSQLITE.md)
 - MySql(comming soon)
+
+<h2>Django Other packages</h2>
+- Celery (comming soon)
+- Channels(comming soon)
