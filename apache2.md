@@ -118,6 +118,7 @@ example: sudo nano /etc/apache2/sites-available/subho.com.conf
  ```bash
 <VirtualHost *:80>
     ServerName www.example.com
+    ServerAlias example.com
     ServerAdmin contact@example.com
     DocumentRoot /var/www/project_folder_name
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -152,8 +153,9 @@ now let's unser stand how to use the whole code so make changes one by one.
 
 ```bash
 ServerName www.example.com
+ServerAlias example.com
 ```
-Here You need to Put your doamin in my case it's 'subho.com'
+Here You need to Put your doamin in (in Server name With www and in ServerAlias Name without www)  my case it's 'subho.com'
 
 ```bash
 ServerName www.subho.com
@@ -195,6 +197,7 @@ in this line of code here is a keyword call 'virtualenv_name' just replace it wi
  ```bash
 <VirtualHost *:80>
     ServerName www.subho.com
+    ServerAlias subho.com
     ServerAdmin subho1307@gmail.com
     DocumentRoot /var/www/myproject
     ErrorLog ${APACHE_LOG_DIR}/error.log
@@ -368,7 +371,8 @@ If you Don't see apache name after running this command the run the follwing com
 ```bash
 sudo ufw allow "Apache Full"
 ```
-- Now Run This command and you will see all domains that are pointed to your vps chose or multipule. 
+- Now Run This command and you will see all domains that are pointed to your vps chose one or multipule.
+ ** in our case we will see two options (ex: www.subho.com and subho.com) type both option number with coma and press enter
  
  ```bash
 certbot --apache
@@ -382,14 +386,6 @@ WSGIDaemonProcess myprojects python-home=/var/www/myproject/myvnv python-path=/v
 WSGIProcessGroup myprojects
 WSGIScriptAlias /  /var/www/myproject/myproject/wsgi.py
  ```
-- Now Run This following command
-
-```bash
-cd /etc/apache2/sites-enabled
-```
-
-- After That use 'ls' Command You will The  same files which you just edited
-- You will Need to make same changes What you have done here (uncommeting the last 3 lines in first file and in the second file uncomminting the 3 lines and changeing the project name)
 - Now Restart Your Apache To see the changes
   ```bash
   sudo service apache2 restart
