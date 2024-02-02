@@ -201,6 +201,8 @@ source myvnv/bin/activate
 - Run The Following Command To Download Required package
 
 ```bash
+sudo apt-get install pkg-config 
+sudo apt-get install libmysqlclient-dev
 pip3 install mysqlclient
 ```
 - Run Migrations
