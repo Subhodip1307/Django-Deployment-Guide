@@ -26,7 +26,6 @@ Now lets look at the Structure of our project
     |_app1
         |_template
         |_static
-    |_myvnv(virtual env)
     |_manage.py
     |_requirments.txt
 
