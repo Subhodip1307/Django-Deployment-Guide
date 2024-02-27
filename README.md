@@ -37,6 +37,19 @@ If You are unable to understand or comfuse that how use this strcutre or somethi
 # Basic VPS Configuration
 In this section we will configure our VPS and donwload all dependensis for our project and we will also create a user.
 
+<h2>Domain Pointing</h2>
+If You Have a domain and want to use that doamin for your project then you need to point it towards your VPS
+
+- You need to add the Following records in Your Domains DNS
+  
+
+| Record Name | Host/Name | IP Address |
+| :---: | :---: | :--- |
+| A     | @     | Remote  Server IPv4 |
+| A     | www   | Remote  Server IPv4 |
+| AAAA  | @     | Remote  Server IPv6 |
+| AAAA  | www   | Remote  Server IPv6 |
+
 <h2>Createing a User in VPS</h2>
 so in first step we need to login in our vps with ssh key or ip . Here I will use ip and username to login
 
@@ -147,15 +160,28 @@ unzip myproject.zip
 
 untill now we have how Can we set up our project in our vps now we gonna learn how can we depoly our project in differnt web-servers and with differnt databases.
 
-<h2>Web-Server</h2>
+<h2>Methods</h2>
+<h4>With-Out Docker</h4>
 
 -  [Apache](apache2.md)
+-  Nginx & Uwsgi (Comming soon)
 -  Nginx & gunicorn (Comming soon)
+  
+<h4>With Docker</h4>
+
+-  Nginx & gunicorn (Comming soon)
+
+-  Nginx & Uwsgi (Comming soon)
 
 <h2>Data Base</h2>
 
+<h4>With-Out Docker</h4>
+
 - [Sqlite](DBSQLITE.md)
 - [MySql](MYSQL.md)
+
+<h4>With Docker</h4>
+- Working on it ...
 
 <h2>Django Other packages</h2>
 
