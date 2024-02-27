@@ -185,5 +185,5 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 
 <h2>Django Other packages</h2>
 
-- Celery (comming soon)
+- [Celery](CELERY.md)
 - Channels(comming soon)
