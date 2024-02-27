@@ -101,7 +101,7 @@ There Are Two options to install Redis on your server
 
 To Install it Directly You Can follow [RabbitMQ Offical Docs]([https://redis.io/docs/install/install-redis/install-redis-on-linux/](https://www.rabbitmq.com/docs/install-debian#apt-cloudsmith)https://www.rabbitmq.com/docs/install-debian#apt-cloudsmith)
 
-H3>Docker Install</H3>
+<H3>Docker Install</H3>
 * You Should Have Set-up Docker in your system
 - Create a file called "docker-compose.yml" (Where You manage.py is Present)
 
@@ -177,9 +177,22 @@ celery status
 Now Read The Following points Carefully.
 
 - If you want To start Another node Just Run this command again with another worker name
-- 
+ 
    ```bash
            celery -A <project name> multi start <any worker name> \
         --pidfile="$HOME/run/celery/%n.pid" \
         --logfile="$HOME/log/celery/%n%I.log"
        ```
+- If You Have Made Some Changes in your tasks.py or added a new task or something like this And  you want to reflect the changes then you can run the following command
+
+  ```bash
+  celery -A <project name> multi restart <worker name> \
+    --logfile="$HOME/log/celery/%n%I.log" \
+    --pidfile="$HOME/run/celery/%n.pid
+  ```
+- And Finally, if you want to stop celery then run the following command
+
+```bash
+celery multi stopwait <worke name> --pidfile="$HOME/run/celery/%n.pid"
+```
+Now you are ready to use Celery and if you face any problem issue Section is open for you 
