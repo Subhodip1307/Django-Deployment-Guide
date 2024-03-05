@@ -1,7 +1,8 @@
-# Django-Hosting-full-guide
-Welcome to this repo here you will learn how to host your django site in vps or any linux server.
-Most of the django devoloper faces problem to host there site after createting there dajngo Project so no need to worry any more in this Guide you will learn how to host your site in any vps in any web-server.
-I will show here all methods to depoly your django project.
+# Django Deployment full guide
+
+Welcome to this repo here you will learn how to host your Django site in VPS or any Linux server.
+Most Django developers face problems hosting their site after creating their Django Projects so no need to worry anymore in this Guide you will learn how to host your site in any VPS on any web server.
+I will show here all the methods to deploy your Django project.
 # Project Overview
 
 In this section we will see a quice over view that how your project should be.
