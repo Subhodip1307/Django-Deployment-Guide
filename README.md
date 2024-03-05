@@ -170,7 +170,7 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 
 -  Nginx & gunicorn (Comming soon)
 
--  Nginx & Uwsgi (Comming soon)
+-  [Nginx & Uwsgi](nginx_uwsgi_docker.md)
 
 <h2>Data Base</h2>
 
@@ -181,7 +181,7 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 
 <h4>With Docker</h4>
 
-- [Nginx & Uwsgi](nginx_uwsgi_docker.md)
+- Comming Soon ..
 
 <h2>Django Other packages</h2>
 
