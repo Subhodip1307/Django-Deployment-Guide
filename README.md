@@ -180,7 +180,8 @@ untill now we have how Can we set up our project in our vps now we gonna learn h
 - [MySql](MYSQL.md)
 
 <h4>With Docker</h4>
-- Working on it ...
+
+- [Nginx & Uwsgi](nginx_uwsgi_docker.md)
 
 <h2>Django Other packages</h2>
 
