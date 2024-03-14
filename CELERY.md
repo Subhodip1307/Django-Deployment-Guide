@@ -2,7 +2,13 @@
 Celery is an asynchronous task queue or job queue based on distributed message passing. It is used to execute tasks in the background, such as sending emails, processing data, or generating reports. Celery is often used with Django, a Python web framework, to improve the performance and scalability of Django applications.
 If You wanna Know More About it Then Do check-out [Celery-official Docs](https://docs.celeryq.dev/en/main/django/first-steps-with-django.html)
 
-# Basic Setup
+
+
+# Method 1
+
+In This Method We Will See The Easyest Way To Set-up Celery (Not Useing docker) for production.
+
+<h1>Basic Setup</h1> 
 
 First We Gonna Make Basic Setup celery With the following steps. Example [Code]()
 
@@ -196,3 +202,9 @@ Now Read The Following points Carefully.
 celery multi stopwait <worke name> --pidfile="$HOME/run/celery/%n.pid"
 ```
 Now you are ready to use Celery and if you face any problem issue Section is open for you 
+
+# Method 2
+ Here We Will See How To Set-Up Celery with systemd
+
+# Working on it please wait
+
