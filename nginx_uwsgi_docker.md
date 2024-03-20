@@ -1,5 +1,5 @@
 # Django Deployment With Nginx-uwsgi with docker
-Here We will Depoly Our django App With Nginx and Uwsgi in a Docker Container
+Here We will Depoly Our django App With Nginx and Uwsgi in a Docker Container ( I am asumeing That You Have At Least Basic UnderStanding Of Docker)
 
 Nginx : NGINX is an open-source web server that offers a variety of capabilities, including:
 Web serving, Reverse proxying, Caching, Load balancing, Media streaming, Email proxy, HTTP cache services. [Click-To-Know-More](https://www.nginx.com/resources/glossary/nginx/)
@@ -97,7 +97,7 @@ Now Follow The Following Steps One by one
 
 ```bash
 services:
-  mysql:
+  mysqldb:
     image: "mysql"
     expose:
       - "3306"
@@ -192,5 +192,26 @@ MYSQL_DATABASE=mydjangodb
 MYSQL_USER=trisha
 MYSQL_PASSWORD=trisha@django1234
 ```
-# please Wait There is More
+# Django Setting Set-Up
+Now We Need To make Small changes in Our Django settings
+** Here I will Not include Normal Settins Like Debug,key etc.
+
+```bash
+  DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "mydjangodb",
+            "USER": "trisha",
+            "PASSWORD":"trisha@django1234",
+            "HOST": "mysqldb",
+            "PORT": 3306 ,
+        }
+```
+As I am Mentioned in My docker-compose.yml file that I am useing a service call "mysqldb" for MYSQL database so I have filled all the database related credentials one by one from the  "mydb.env" and in the host name I have mentiond the service name.
+
+** If you More Requirements Like rabbitmq or something like that then replace the host name with the service name of that requirements and enter expose port or deafult port of that Service
+
+# Nginx Set-up
+
+
 # Working On IT
