@@ -141,9 +141,11 @@ RUN pip install --upgrade pip
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
-
+CMD ["python3" "manage.py", "colletcstatic"]
 ```
 ** In The Fist Line Of Code I Have Written The Required Version Of Python For My Project You Can Change It With Your Project Requirement 
+
+** I am assumeing that you have set path or static Root in django settings.py
 
 This Code Will Copy Your Project and requirements into the Container and install all requirements.
 
@@ -211,7 +213,103 @@ As I am Mentioned in My docker-compose.yml file that I am useing a service call 
 
 ** If you More Requirements Like rabbitmq or something like that then replace the host name with the service name of that requirements and enter expose port or deafult port of that Service
 
-# Nginx Set-up
+** I Hope You WIll Change Some Simpel Settings On Your OWn Like Makeing The Debug=True To Debug=False,Allowed HOST ect (But I Would Suggest You Not To Make The Debug=True untill You Successfully Depoly Your Project).
 
+** You Can also Use Docker environment Variables
+
+# Nginx Set-up
+ 
+ **I am Keeping The Nginx Out Of My Docker Container Due Making This More Simple And Depoly More Than One Application In A Singel Server .
+ 
+ Now Run The Follwing Command To Change Your Dir.
+ 
+```bash
+cd /etc/nginx/sites-available/
+```
+Now Create a File With Your Domain Name (ex: In My Case My Domain is Subho.com)
+
+```bash
+syntax: nano domain
+example: nano  Subho.com
+```
+Now Copy The Following Code Pasted it in Your Newly Created Nginx file File
+
+```bash
+upstream <app_name> {
+  server unix:<path to Your Project Folder>/uwsgi_app.socket;
+}
+
+server {
+ listen 80;
+ server_name www.<domain_name> <domain_name>;
+ location / {
+    include /etc/nginx/uwsgi_params;
+    uwsgi_pass  <app_name>;
+    }
+ location /static/ {
+    alias <location to your static files>;
+  }
+location /media/ {
+  alias <location to your Media files>;
+}
+}
+```
+Now Let's Edit The Code in Few Steps
+
+- In First Line There is a line 'upstream <app_name>' here replace the <app_name> with any name you want ( it's suggested to use your project name , in My Case it will be 'myproject'), and then in The next Line replace the '<path to Your Project Folder' with your project location (in my case it's '/var/www/myproject')
+
+```bash
+
+  upstream myproject {
+  server unix:/var/www/myproject/uwsgi_app.socket;
+  }
+
+```
+- Now in the 'server_name' add your domain name (ex: in my case it's Subho.com)
+
+```bash
+ server_name www.Subho.com Subho.com;
+```
+- Now  in the 'uwsgi_pass' Section change the  <app_name> with the Name you given at first (ex: In my case it's 'myproject')
+
+```bash
+uwsgi_pass myproject
+```
+- Now There is two more location section one is for static files and another one is media file now write the location according to your project
+
+```bash
+location /static/ {
+alias /var/www/myproject/static/;
+}
+location /media/ {
+alias /var/www/myproject/media/;
+}
+```
+**if You Don't have any media  file or static file or both of them you can simpley remove the location form your file
+
+Now we are done, finally the file should look like (according to my project name,location etc.)
+
+```bash
+upstream myproject {
+  server unix:/var/www/myproject/uwsgi_app.socket;
+}
+
+server {
+  listen 80;
+  server_name www.subho.com Subho.com
+  location / {
+    include /etc/nginx/uwsgi_params;
+    uwsgi_pass myproject;
+    }
+  location /static/ {
+  alias /var/www/myproject/static/;
+  }
+  location /media/ {
+  alias /var/www/myproject/media/;
+  }
+
+}
+
+```
 
 # Working On IT
