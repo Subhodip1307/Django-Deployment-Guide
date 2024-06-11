@@ -245,6 +245,7 @@ server {
  location / {
     include /etc/nginx/uwsgi_params;
     uwsgi_pass  <app_name>;
+    uwsgi_read_timeout 70s;
     }
  location /static/ {
     alias <location to your static files>;
@@ -275,6 +276,8 @@ Now Let's Edit The Code in Few Steps
 ```bash
 uwsgi_pass myproject
 ```
+- Now change the value 'uwsgi_read_timeout' around 70s to 100s (The uwsgi_read_timeout directive in NGINX sets the amount of time upstream waits for a uwsgi process to send response data. The default value is 60 seconds) 
+
 - Now There is two more location section one is for static files and another one is media file now write the location according to your project
 
 ```bash
@@ -300,6 +303,7 @@ server {
   location / {
     include /etc/nginx/uwsgi_params;
     uwsgi_pass myproject;
+    uwsgi_read_timeout 100s;
     }
   location /static/ {
   alias /var/www/myproject/static/;
