@@ -316,4 +316,27 @@ server {
 
 ```
 
-# Working On IT
+# Start Docker
+
+Till now we have done setting up docker-nginx and database now we are ready to start the docker deamon for that do to your project dir and run the following command
+
+```bash
+docker-compose up -d
+nginx -s reload
+```
+** wait for a few seconds and keep checking the logs after few time go to your browser and search for the domain and you will able to see your website (with http not https) if you encounter any error like 500 then go and resart your uwsgi container 
+in my case it's name is 'mydjdno' so the command will be
+
+```bash
+docker-compose restart mydjdno
+```
+if the issue still not resolved try checking 
+
+```bash
+docker-compose ps -a
+```
+and check which one is causeing issue and try to fix that by restarting that or check it's logs,
+if you have another service like celery dont forgot to restart them also. now in final step we will learn to activate SSL in our site 
+
+
+
