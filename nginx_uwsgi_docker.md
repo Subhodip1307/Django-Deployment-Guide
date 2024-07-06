@@ -338,5 +338,7 @@ docker-compose ps -a
 and check which one is causeing issue and try to fix that by restarting that or check it's logs,
 if you have another service like celery dont forgot to restart them also. now in final step we will learn to activate SSL in our site 
 
+# Enable SSL
+To enable SSl [read this](ngnix_SSL.md)
 
 
