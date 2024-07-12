@@ -204,7 +204,56 @@ celery multi stopwait <worke name> --pidfile="$HOME/run/celery/%n.pid"
 Now you are ready to use Celery and if you face any problem issue Section is open for you 
 
 # Method 2
- Here We Will See How To Set-Up Celery with systemd
+ Here we will see how can we depoly celery with Docker.
+
+<H2>Step 1</H2>
+In This Step We Will Create Docker Image.
+In My Case I will create a docker Image Name "Docker_celery" then paste the following code there then we will understand what is written there.
+
+```bash
+FROM python:3.10.6
+
+WORKDIR /code/
+
+RUN pip install --upgrade pip 
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
+COPY . /code/
+```
+- Here I have selected python 3.10.6 you can choose another verson of python.
+- Here I have selected 'code' as my working Dir.
+- Here I am upgradeing the pip to it's newest version.
+- As It's a python project I have my 'requirements.txt' file to install all required packages so I am moving in to docker image ( remember this file should contains all the required packages that's the project is neeed).
+- Next I am runing comand to install all requirements from the txt file.
+- the I am copying all the codes for project from host machine docker image.
+
+<H2>Step 2</H2>
+In this step we will write docker-compose file for our celery and message broker (rabbit Mq or redis) and for some reason you want run message broker in host machine (not recomondated) you don't need to write them in your docker-compose file.
+
+Add the following code to your existing docker-compose code.
+
+```bash
+ msgbroker:
+    image: "rabbitmq:management"
+    restart: always  
+    volumes:
+      - /var/www/data:/var/lib/rabbitmq
+celery_task:
+    image: celery_image
+    build:
+      context: .
+      dockerfile: Docker_celery
+    volumes: 
+      - .:/code
+    restart: always  
+    command: celery -A core worker --loglevel=INFO --concurrency=4 -n worker1@%h
+```
+- Here the first image is for the message broker for celery and the name and I am useing Rabbitmq you can also use redis.
+- Always set the volumes of out your project folder.
+- Next I have written code for celery and in Image section I am giving a name for celery job which is 'celery_image' which we can use in future for more celery worker for same project 
+- Next in 'dockerfile' I have given docker file that we have made before and then we provided the working dir name (The dir name should be same as the Docker file made for celery)
+- Now let's undersatand the command section 
+ 
 
 # Working on it please wait
 
