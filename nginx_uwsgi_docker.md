@@ -315,6 +315,20 @@ server {
 }
 
 ```
+Now we need to create a symbolic link and refresh the nginx, follow the steps individually to do that.
+
+- We need to create a symbolic link of the config file (in my case its 'Subho.com' ) from '/etc/nginx/sites-available' to '/etc/nginx/sites-enabled', run the following command to do that
+
+```bash
+  syntax:  sudo ln -s /etc/nginx/sites-available/<your config> /etc/nginx/sites-enabled/
+  example: sudo ln -s /etc/nginx/sites-available/subho.com /etc/nginx/sites-enabled/
+```
+- after all of this just refresh or restart nginx and open the URL in your browser (this time you will able to see a 502 getaway error to fix this we simply follow all steps one by one ).
+
+```bash
+Refresh command:  sudo nginx -s reload
+Restart command: sudo systemctl restart nginx 
+```
 
 # Start Docker
 
